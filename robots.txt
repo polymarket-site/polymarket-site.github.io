@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://polymarket-site.github.io/sitemap.xml
