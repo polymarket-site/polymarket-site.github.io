@@ -3,342 +3,228 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Polymarket - Decentralized DeFi Portal</title>
-  <meta name="description" content="Secure, non-custodial portal for Polymarket DeFi operations directly from your own wallet.">
+  <title>Polymarket - Prediction Market App</title>
+  <meta name="description" content="Polymarket helps you prepare USDC for event-market positions with wallet-native routing, clear costs and a direct non-custodial flow.">
+  <meta name="theme-color" content="#0A0710">
   <link rel="canonical" href="https://polymarket-site.github.io/">
   <meta name="robots" content="index,follow">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
   <link rel="manifest" href="site.webmanifest">
   <link rel="prefetch" href="dashboard/">
-  <link rel="prerender" href="dashboard/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Polymarket - Prediction Market App">
+  <meta property="og:description" content="Prepare USDC for Polymarket with wallet-native routing, live quote details and a non-custodial app flow.">
+  <meta property="og:image" content="og-cover.png">
+  <meta property="og:url" content="https://polymarket-site.github.io/">
   <style>
+  :root{
+    --bg:#0A0710; --bg-2:#0E0A16;
+    --panel:rgba(255,255,255,.045); --panel-2:rgba(255,255,255,.072);
+    --text:#F4F1F7; --muted:#A89FB2; --quiet:#7B7287;
+    --line:rgba(255,255,255,.09); --line-2:rgba(255,255,255,.055);
+    --accent:#5B6CFF; --accent-2:#5B6CFF; --accent-ink:#434FBC; --accent-soft:rgba(91,108,255,.1);
+    --radius:22px; --radius-sm:14px;
+    --shadow:0 40px 90px -50px rgba(0,0,0,.9), 0 12px 30px -20px rgba(0,0,0,.7);
+    --ui:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+    --body:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0; overflow-x:hidden}
+  body{
+    background:var(--bg); color:var(--text); font-family:var(--body); line-height:1.55;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; position:relative;
+  }
+  a{color:inherit; text-decoration:none}
+  a.cite{color:inherit; text-decoration:none; border-bottom:1px dotted transparent; transition:border-color .15s ease}
+  a.cite:hover{border-bottom-color:var(--quiet)}
+  img{display:block; max-width:100%}
+  button{font:inherit; cursor:pointer; border:none; background:none; color:inherit}
+  h1,h2,h3,p{margin:0}
 
+  /* ---------- aurora texture ---------- */
+  .bg{position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden}
+  .bg .glow{
+    position:absolute; inset:0;
+    background:
+      radial-gradient(760px 520px at 50% -8%, rgba(91,108,255,.20), transparent 60%),
+      radial-gradient(680px 520px at 88% 8%, rgba(91,108,255,.12), transparent 62%),
+      radial-gradient(720px 560px at 6% 30%, rgba(91,108,255,.08), transparent 60%);
+  }
+  .bg .dots{
+    position:absolute; inset:0;
+    background-image:radial-gradient(rgba(255,255,255,.07) 1px, transparent 1.4px);
+    background-size:24px 24px;
+    -webkit-mask-image:radial-gradient(130% 90% at 50% 6%, #000 42%, transparent 86%);
+            mask-image:radial-gradient(130% 90% at 50% 6%, #000 42%, transparent 86%);
+  }
 
-:root{
-  --bg:#F7F8FA;
-  --surface:#FFFFFF;
-  --surface-soft:#F1F4F8;
-  --ink:#101318;
-  --muted:#5D6774;
-  --faint:#8C96A3;
-  --line:rgba(16,19,24,.10);
-  --line-strong:rgba(16,19,24,.16);
-  --accent:#2D6BF8;
-  --accent-soft:rgba(45,107,248,.10);
-  --accent-hover:#205ADF;
-  --shadow:0 28px 70px -36px rgba(16,19,24,.34);
-}
-
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  min-height:100dvh;
-  overflow:hidden;
-  color:var(--ink);
-  background:
-    radial-gradient(55% 42% at 50% -10%, rgba(45,107,248,.12), transparent 64%),
-    linear-gradient(180deg, #FFFFFF 0%, var(--bg) 58%, #F3F5F8 100%);
-  font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  line-height:1.5;
-  -webkit-font-smoothing:antialiased;
-  display:flex;
-  flex-direction:column;
-}
-
-a{color:inherit;text-decoration:none}
-img{display:block;max-width:100%}
-p,h1{margin:0}
-
-.topbar{
-  flex:0 0 auto;
-  display:flex;
-  align-items:center;
-  gap:18px;
-  min-height:68px;
-  padding:16px clamp(18px,4vw,44px);
-}
-
-.brand{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  min-width:0;
-  font-weight:760;
-  letter-spacing:0;
-  font-size:1.02rem;
-}
-
-.brand img{
-  width:28px;
-  height:28px;
-  border-radius:8px;
-  box-shadow:0 0 0 1px var(--line);
-  flex:none;
-}
-
-.nav{
-  display:flex;
-  align-items:center;
-  gap:26px;
-  margin-left:10px;
-}
-
-.nav a{
-  color:var(--muted);
-  font-size:.93rem;
-  font-weight:560;
-  transition:color .16s ease;
-}
-
-.nav a:hover{color:var(--ink)}
-.spacer{flex:1}
-
-.ghost{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:38px;
-  padding:8px 17px;
-  border:1px solid var(--line-strong);
-  border-radius:999px;
-  color:var(--ink);
-  background:rgba(255,255,255,.72);
-  font-size:.92rem;
-  font-weight:700;
-  box-shadow:0 10px 30px -24px rgba(16,19,24,.4);
-  transition:border-color .16s ease, transform .16s ease, background .16s ease;
-}
-
-.ghost:hover{
-  transform:translateY(-1px);
-  border-color:rgba(45,107,248,.38);
-  background:#FFFFFF;
-}
-
-.stage{
-  flex:1 1 auto;
-  min-height:0;
-  width:100%;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:28px;
-  padding:10px clamp(18px,4vw,44px) 16px;
-}
-
-.hero{
-  width:min(680px,100%);
-  text-align:center;
-}
-
-h1{
-  font-size:clamp(3rem,6vw,4.8rem);
-  line-height:1.02;
-  letter-spacing:0;
-  font-weight:820;
-}
-
-.sub{
-  max-width:58ch;
-  margin:16px auto 0;
-  color:var(--muted);
-  font-size:clamp(1rem,1.65vw,1.16rem);
-}
-
-.sub strong{
-  color:var(--ink);
-  font-weight:760;
-}
-
-.app-card{
-  width:min(430px,100%);
-  border:1px solid var(--line);
-  border-radius:20px;
-  background:rgba(255,255,255,.92);
-  box-shadow:var(--shadow);
-  padding:20px;
-}
-
-.question{
-  min-height:48px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border:1px solid var(--line);
-  border-radius:14px;
-  background:linear-gradient(180deg,#FFFFFF 0%,#F8FAFC 100%);
-  color:var(--ink);
-  font-size:1.04rem;
-  font-weight:760;
-  text-align:center;
-}
-
-.outcomes{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin-top:14px;
-}
-
-.outcome{
-  min-height:48px;
-  border:1px solid var(--line);
-  border-radius:14px;
-  background:var(--surface-soft);
-  color:var(--muted);
-  font:inherit;
-  font-size:1rem;
-  font-weight:780;
-  cursor:pointer;
-  transition:background .16s ease, color .16s ease, border-color .16s ease, transform .16s ease;
-}
-
-.outcome:hover{
-  transform:translateY(-1px);
-  border-color:rgba(45,107,248,.34);
-}
-
-.outcome.is-selected{
-  background:var(--accent);
-  border-color:var(--accent);
-  color:#FFFFFF;
-}
-
-.asset-chip{
-  min-height:46px;
-  margin-top:14px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  border:1px solid var(--line);
-  border-radius:999px;
-  background:#FFFFFF;
-  color:var(--muted);
-  font-size:.93rem;
-  font-weight:700;
-}
-
-.asset-chip img{
-  width:24px;
-  height:24px;
-  border-radius:50%;
-  flex:none;
-}
-
-.primary{
-  min-height:54px;
-  margin-top:16px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:15px;
-  background:var(--accent);
-  color:#FFFFFF;
-  font-size:1.04rem;
-  font-weight:820;
-  box-shadow:0 18px 36px -24px rgba(45,107,248,.9);
-  transition:background .16s ease, transform .16s ease, box-shadow .16s ease;
-}
-
-.primary:hover{
-  transform:translateY(-1px);
-  background:var(--accent-hover);
-  box-shadow:0 22px 42px -24px rgba(45,107,248,1);
-}
-
-.foot{
-  flex:0 0 auto;
-  padding:14px 24px 22px;
-  color:var(--faint);
-  text-align:center;
-  font-size:.86rem;
-  font-weight:650;
-}
-
-@media(max-width:620px){
+  /* ---------- top bar ---------- */
   .topbar{
-    min-height:62px;
-    gap:12px;
-    padding:14px 16px;
+    position:relative; z-index:5; display:flex; align-items:center; gap:22px;
+    width:min(100%,1180px); margin:0 auto; padding:20px clamp(18px,4vw,48px) 8px;
   }
+  .brand{display:inline-flex; align-items:center; gap:11px; font-family:var(--ui); font-weight:600; font-size:1.04rem; letter-spacing:-.01em}
+  .brand img{width:30px; height:30px; border-radius:9px; box-shadow:0 0 0 1px var(--line)}
+  .spacer{flex:1}
+  .nav{display:flex; align-items:center; gap:clamp(16px,2.6vw,30px)}
+  .nav a{font-family:var(--ui); font-weight:500; font-size:.92rem; color:var(--muted); transition:color .16s ease}
+  .nav a:hover{color:var(--text)}
 
-  .nav{display:none}
-
-  .brand{
-    font-size:.98rem;
-    gap:9px;
+  /* ---------- shared section frame ---------- */
+  .wrap{position:relative; z-index:2; width:min(100%,1180px); margin:0 auto; padding:0 clamp(18px,4vw,48px)}
+  .sec{padding-top:clamp(50px,7.5vh,96px); padding-bottom:clamp(50px,7.5vh,96px)}
+  .sec-head{text-align:center; max-width:60ch; margin:0 auto clamp(28px,4vh,44px)}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:9px; padding:7px 14px; border:1px solid var(--line);
+    border-radius:999px; background:var(--panel); font-family:var(--ui); font-weight:600;
+    font-size:.74rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-ink);
   }
+  .eyebrow .dot{width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px var(--accent-soft)}
+  .h2{margin-top:18px; font-family:var(--ui); font-weight:700; color:var(--text); font-size:clamp(1.9rem,3.6vw,2.8rem); line-height:1.04; letter-spacing:-.025em}
+  .sec-head p{margin-top:14px; color:var(--muted); font-size:clamp(1rem,1.3vw,1.12rem); line-height:1.6}
 
-  .brand img{
-    width:26px;
-    height:26px;
+  /* ---------- hero (centered spotlight) ---------- */
+  .hero{text-align:center; padding-top:clamp(26px,5vh,64px); padding-bottom:clamp(20px,3vh,40px)}
+  .hero .eyebrow{margin:0 auto}
+  .hero h1{
+    margin:22px auto 0; font-family:var(--ui); font-weight:700; color:var(--text);
+    font-size:clamp(3.1rem,7.4vw,5.6rem); line-height:.96; letter-spacing:-.035em; max-width:14ch;
   }
-
+  .deck{max-width:52ch; margin:20px auto 0; color:var(--muted); font-size:clamp(1.05rem,1.5vw,1.24rem); line-height:1.58}
+  .deck strong{color:var(--text); font-weight:600}
+  .cta-row{display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:14px; margin:30px 0 0}
+  .primary{
+    display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height:56px; padding:0 30px;
+    border-radius:15px; color:#fff; font-family:var(--ui); font-weight:600; font-size:1.04rem; letter-spacing:-.01em;
+    background:linear-gradient(180deg, var(--accent), var(--accent-2));
+    box-shadow:0 20px 44px -22px rgba(91,108,255,.9), inset 0 1px 0 rgba(255,255,255,.25);
+    transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
+  }
+  .primary:hover{transform:translateY(-1px); filter:brightness(1.06); box-shadow:0 26px 52px -22px rgba(91,108,255,1)}
+  .primary svg{width:17px; height:17px}
   .ghost{
-    min-height:36px;
-    padding:7px 13px;
-    font-size:.88rem;
+    display:inline-flex; align-items:center; gap:8px; min-height:56px; padding:0 22px; border-radius:15px;
+    border:1px solid var(--line); background:var(--panel); color:var(--text);
+    font-family:var(--ui); font-weight:600; font-size:1rem; transition:border-color .16s ease, background .16s ease, transform .16s ease;
   }
+  .ghost:hover{border-color:rgba(91,108,255,.5); background:var(--panel-2); transform:translateY(-1px)}
+  .ghost svg{width:15px; height:15px; color:var(--accent-ink)}
+  .chips{list-style:none; margin:26px 0 0; padding:0; display:flex; flex-wrap:wrap; justify-content:center; gap:9px}
+  .chips li{display:inline-flex; align-items:center; gap:8px; padding:8px 15px; border:1px solid var(--line); border-radius:999px; background:var(--panel); font-family:var(--ui); font-weight:500; font-size:.86rem; color:var(--muted)}
+  .chips li::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--accent)}
 
-  .stage{
-    justify-content:center;
-    gap:22px;
-    padding:6px 16px 12px;
+  /* ---------- horizontal route panel ---------- */
+  .route-panel{
+    width:min(100%,720px); margin:clamp(34px,5vh,52px) auto 0; padding:18px;
+    border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow);
+    background:linear-gradient(180deg, var(--panel-2), var(--panel)); backdrop-filter:blur(16px); text-align:left;
   }
-
-  h1{font-size:2.84rem}
-
-  .sub{
-    margin-top:12px;
-    max-width:31ch;
-    font-size:1rem;
-    line-height:1.48;
+  .rp-head{display:flex; align-items:center; justify-content:space-between; padding:2px 6px 14px}
+  .rp-head .ct{font-family:var(--ui); font-weight:600; font-size:1.04rem}
+  .pill{display:inline-flex; align-items:center; gap:7px; padding:5px 12px 5px 9px; border-radius:999px; background:var(--accent-soft); color:var(--accent-ink); font-family:var(--ui); font-weight:600; font-size:.74rem}
+  .pill .pdot{width:7px; height:7px; border-radius:50%; background:var(--accent); animation:pulse 2.4s ease-out infinite}
+  .route{display:grid; grid-template-columns:minmax(0,1fr) 50px minmax(0,1fr); align-items:center; gap:12px}
+  .leg{min-width:0; padding:15px 16px; border:1px solid var(--line); border-radius:var(--radius-sm); background:var(--panel)}
+  .leg .label{display:block; color:var(--quiet); font-size:.72rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase}
+  .leg .chiprow{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:12px}
+  .tok{display:inline-flex; align-items:center; gap:9px; font-family:var(--ui); font-weight:600; font-size:1.06rem; color:var(--text)}
+  .tok img{width:26px; height:26px; border-radius:50%; box-shadow:0 0 0 1px var(--line)}
+  .tok .cv{color:var(--quiet); font-size:.8em}
+  .ghostval{color:var(--quiet); font-size:.82rem}
+  .switch{
+    width:46px; height:46px; justify-self:center; border-radius:50%; border:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02)), #0F0A19;
+    color:var(--accent-ink); display:grid; place-items:center; transition:transform .25s ease, border-color .2s ease;
   }
+  .switch svg{width:18px; height:18px}
+  .switch:hover{transform:rotate(180deg); border-color:rgba(91,108,255,.55)}
+  .rp-meta{display:flex; align-items:center; gap:8px; margin-top:10px; padding:11px 14px; border-radius:12px; background:var(--panel); color:var(--muted); font-size:.82rem}
+  .rp-meta svg{width:15px; height:15px; color:var(--accent-ink); flex:none}
+  .rp-cta{display:flex; align-items:center; justify-content:center; gap:8px; width:100%; margin-top:10px; min-height:52px; border-radius:14px; color:#fff; font-family:var(--ui); font-weight:600; font-size:1rem; background:linear-gradient(180deg, var(--accent), var(--accent-2)); box-shadow:0 16px 34px -20px rgba(91,108,255,.9); transition:transform .18s ease, filter .18s ease}
+  .rp-cta:hover{transform:translateY(-1px); filter:brightness(1.06)}
+  .rp-note{margin:11px 0 2px; text-align:center; color:var(--quiet); font-size:.78rem}
 
-  .app-card{
-    padding:16px;
-    border-radius:18px;
+  /* ---------- how it works (horizontal connector) ---------- */
+  .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; position:relative}
+  .steps::before{content:""; position:absolute; top:23px; left:14%; right:14%; height:1px; background:linear-gradient(90deg, transparent, var(--line-strong, rgba(255,255,255,.12)), transparent)}
+  .step{text-align:center; padding:0 8px}
+  .step .node{width:46px; height:46px; margin:0 auto; border-radius:50%; display:grid; place-items:center; background:var(--bg-2); border:1px solid var(--line); color:var(--accent-ink); font-family:var(--ui); font-weight:700; font-size:1rem; position:relative; z-index:1; box-shadow:0 0 0 5px var(--bg)}
+  .step h3{margin:16px 0 8px; font-family:var(--ui); font-weight:600; font-size:1.12rem; color:var(--text); letter-spacing:-.01em}
+  .step p{color:var(--muted); font-size:.93rem; line-height:1.55; max-width:30ch; margin:0 auto}
+
+  /* ---------- why (bento) ---------- */
+  .bento{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+  .tile{padding:24px 22px; border:1px solid var(--line); border-radius:18px; background:linear-gradient(180deg, var(--panel-2), var(--panel)); position:relative; overflow:hidden}
+  .tile::before{content:""; position:absolute; inset:0 0 auto; height:1px; background:linear-gradient(90deg, transparent, rgba(91,108,255,.5), transparent)}
+  .tile.wide{grid-column:span 3; display:grid; grid-template-columns:1.1fr 1fr; gap:22px; align-items:center}
+  .tile .ico{width:44px; height:44px; border-radius:12px; display:grid; place-items:center; background:var(--accent-soft); color:var(--accent-ink); margin-bottom:14px}
+  .tile .ico svg{width:21px; height:21px}
+  .tile h3{font-family:var(--ui); font-weight:600; font-size:1.16rem; color:var(--text); letter-spacing:-.01em}
+  .tile.wide h3{font-size:1.5rem}
+  .tile p{margin-top:9px; color:var(--muted); font-size:.95rem; line-height:1.6}
+  .tile .mini-route{border:1px solid var(--line); border-radius:14px; background:var(--panel); padding:16px; display:flex; align-items:center; justify-content:center; gap:12px; font-family:var(--ui); font-weight:600; color:var(--muted)}
+  .tile .mini-route img{width:30px; height:30px; border-radius:50%; box-shadow:0 0 0 1px var(--line)}
+  .tile .mini-route .arr{color:var(--accent-ink)}
+
+  /* ---------- networks ---------- */
+  .nets{display:flex; flex-wrap:wrap; justify-content:center; gap:10px; max-width:760px; margin:0 auto}
+  .net{display:inline-flex; align-items:center; gap:9px; padding:11px 18px; border:1px solid var(--line); border-radius:999px; background:var(--panel); font-family:var(--ui); font-weight:600; font-size:.94rem; color:var(--text)}
+  .net .nd{width:9px; height:9px; border-radius:50%; background:var(--accent)}
+  .nets-foot{text-align:center; margin-top:22px}
+  .nets-foot a{display:inline-flex; align-items:center; gap:7px; color:var(--accent-ink); font-family:var(--ui); font-weight:600; font-size:.96rem}
+  .nets-foot a:hover{text-decoration:underline}
+  .nets-foot svg{width:15px; height:15px}
+
+  /* ---------- FAQ (centered single column) ---------- */
+  .faq{max-width:760px; margin:0 auto}
+  .qa{padding:24px 4px; border-top:1px solid var(--line)}
+  .qa:first-child{border-top:none}
+  .qa h3{font-family:var(--ui); font-weight:600; font-size:1.16rem; color:var(--text); letter-spacing:-.01em; display:flex; gap:12px}
+  .qa h3 .qn{color:var(--accent-ink); font-size:.92rem; font-weight:700; padding-top:3px}
+  .qa p{margin-top:10px; padding-left:30px; color:var(--muted); font-size:.98rem; line-height:1.65}
+  .qa a:not(.cite){color:var(--accent-ink); font-weight:600}
+
+  /* ---------- explore ---------- */
+  .explore{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+  .ex{display:flex; flex-direction:column; gap:7px; padding:22px; border:1px solid var(--line); border-radius:16px; background:var(--panel); transition:transform .16s ease, border-color .16s ease, background .16s ease}
+  .ex:hover{transform:translateY(-2px); border-color:rgba(91,108,255,.45); background:var(--panel-2)}
+  .ex .et{display:flex; align-items:center; justify-content:space-between; gap:10px; font-family:var(--ui); font-weight:600; font-size:1.05rem; color:var(--text)}
+  .ex .et svg{width:16px; height:16px; color:var(--accent-ink); flex:none}
+  .ex p{color:var(--muted); font-size:.9rem; line-height:1.5}
+
+  /* ---------- footer ---------- */
+  .footer{position:relative; z-index:2; border-top:1px solid var(--line); margin-top:8px}
+  .footer .wrap{padding-top:28px; padding-bottom:36px; text-align:center; color:var(--quiet); font-size:.84rem}
+  .footer b{color:var(--muted); font-weight:600}
+
+  @keyframes pulse{0%{box-shadow:0 0 0 0 var(--accent-soft)} 70%{box-shadow:0 0 0 8px rgba(91,108,255,0)} 100%{box-shadow:0 0 0 0 rgba(91,108,255,0)}}
+
+  @media (max-width:900px){
+    .nav{display:none}
+    .steps{grid-template-columns:1fr; gap:26px}
+    .steps::before{display:none}
+    .bento{grid-template-columns:1fr}
+    .tile.wide{grid-column:span 1; grid-template-columns:1fr}
+    .explore{grid-template-columns:1fr}
   }
-
-  .question,
-  .outcome{
-    min-height:44px;
+  @media (max-width:560px){
+    .route{grid-template-columns:1fr; gap:9px}
+    .switch{transform:rotate(90deg)}
+    .switch:hover{transform:rotate(270deg)}
+    .cta-row .primary,.cta-row .ghost{width:100%}
   }
-
-  .asset-chip{min-height:42px}
-  .primary{min-height:50px}
-
-  .foot{
-    padding:10px 18px 16px;
-    font-size:.82rem;
-  }
-}
-
-@media(max-width:380px){
-  .topbar{padding-inline:14px}
-  .ghost{padding-inline:11px}
-  h1{font-size:2.64rem}
-  .sub{font-size:.96rem}
-  .app-card{padding:14px}
-}
-
-
-  
-.footer {
-  text-align: center !important;
-}
+  @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important; transition-duration:.01ms!important}}
   </style>
 </head>
 <body>
+  <div class="bg" aria-hidden="true"><div class="glow"></div><div class="dots"></div></div>
+
   <header class="topbar">
-    <div class="brand">
+    <a class="brand" href="./">
       <img src="favicon.png" width="30" height="30" alt="">
       <span>Polymarket</span>
-    </div>
+    </a>
     <span class="spacer"></span>
     <nav class="nav" aria-label="Main Navigation">
       <a href="how-it-works/">How it works</a>
@@ -348,11 +234,238 @@ h1{
       <a href="supported-chains/">Supported Chains</a>
     </nav>
   </header>
-  <main class="stage" style="padding: 100px 24px; text-align: center; max-width: 800px; margin: 0 auto;">
-    <h1 style="font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 24px; font-weight: 800;">Polymarket</h1>
-    <p class="value" style="font-size: 1.25rem; opacity: 0.8; margin-bottom: 40px; line-height: 1.6;">Secure, non-custodial gateway for decentralized operations. Connect your Web3 wallet to enter the portal.</p>
-    <a class="open-app" href="dashboard/" style="display: inline-flex; justify-content: center; align-items: center; min-height: 52px; padding: 0 32px; border-radius: 9999px; background: var(--accent, #625bf3); color: #fff; font-weight: 700; text-decoration: none; font-size: 1.1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.15); transition: transform 0.2s ease;">Open App Dashboard</a>
+
+  <main>
+    <!-- HERO -->
+    <section class="wrap hero">
+      <span class="eyebrow"><span class="dot"></span>Prediction Market Access</span>
+      <h1>Polymarket</h1>
+      <p class="deck">Polymarket brings event-market trading into a <strong>wallet-native</strong> flow: prepare USDC, review the route and enter markets from a non-custodial app built for fast decisions.</p>
+      <div class="cta-row">
+        <a class="primary" href="dashboard/">
+          Open App
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="ghost" href="how-it-works/">
+          How it works
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <ul class="chips">
+        <li>USDC-ready</li>
+        <li>Wallet-native</li>
+        <li>Non-custodial</li>
+        <li>Market-focused</li>
+      </ul>
+
+      <section class="route-panel" aria-label="Polymarket swap preview">
+        <div class="rp-head">
+          <span class="ct">Prepare USDC</span>
+          <span class="pill"><span class="pdot"></span>Preview</span>
+        </div>
+        <div class="route">
+          <div class="leg">
+            <span class="label">From</span>
+            <div class="chiprow">
+              <button class="tok" type="button"><img src="usdc.png" alt="USDC">USDC <span class="cv" aria-hidden="true">&#9662;</span></button>
+              <span class="ghostval">Amount in app</span>
+            </div>
+          </div>
+          <button class="switch" type="button" data-switch aria-label="Switch direction">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v13M4 14l3 3 3-3M17 20V7M14 10l3-3 3 3"/></svg>
+          </button>
+          <div class="leg">
+            <span class="label">To</span>
+            <div class="chiprow">
+              <button class="tok" type="button"><img src="usdc.png" alt="USDC">Polymarket <span class="cv" aria-hidden="true">&#9662;</span></button>
+              <span class="ghostval">Live quote in app</span>
+            </div>
+          </div>
+        </div>
+        <div class="rp-meta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 5v5l3 3"/></svg>
+          Market route, network cost and confirmation details are shown in the app.
+        </div>
+        <a class="rp-cta" href="dashboard/">Open App</a>
+        <p class="rp-note">Preview only &middot; non-custodial &middot; connect your wallet in the app</p>
+      </section>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="wrap sec" id="how">
+      <div class="sec-head">
+        <span class="eyebrow"><span class="dot"></span>How it works</span>
+        <h2 class="h2">Use Polymarket in three focused steps</h2>
+        <p>Move from wallet balance to market-ready USDC without guessing at routing, timing or the cost of the next signature.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="node">1</div>
+          <h3>Connect your wallet</h3>
+          <p>Open the app and connect a <a class="cite" href="https://ethereum.org/en/wallets/" rel="nofollow noopener noreferrer">self-custody wallet</a>. You stay in control of approvals and signatures from the start.</p>
+        </div>
+        <div class="step">
+          <div class="node">2</div>
+          <h3>Prepare USDC</h3>
+          <p>Choose the asset route for <a class="cite" href="https://www.circle.com/usdc" rel="nofollow noopener noreferrer">USDC</a> and review live app details before moving funds toward a Polymarket-ready balance.</p>
+        </div>
+        <div class="step">
+          <div class="node">3</div>
+          <h3>Review and sign</h3>
+          <p>Check the market flow, network fee and expected timing, then confirm only when the wallet prompt matches what you selected.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY (bento) -->
+    <section class="wrap sec" id="why">
+      <div class="sec-head">
+        <span class="eyebrow"><span class="dot"></span>Why Polymarket</span>
+        <h2 class="h2">Built for sharper market entry</h2>
+      </div>
+      <div class="bento">
+        <div class="tile wide">
+          <div>
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span>
+            <h3>Non-custodial access to event markets</h3>
+            <p>Use Polymarket as an <a class="cite" href="https://polymarket.com/" rel="nofollow noopener noreferrer">event-market platform</a> without handing control of your wallet to a middleman. The app keeps the critical steps visible: asset, destination, route and signature.</p>
+          </div>
+          <div class="mini-route">
+            <img src="usdc.png" alt="USDC"><span class="arr">&#8594;</span><img src="favicon.png" alt="Polymarket">
+          </div>
+        </div>
+        <div class="tile">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>
+          <h3>USDC-centered routing</h3>
+          <p>Prediction market users care about liquid, spendable balance. This flow keeps the stablecoin leg clear before you act.</p>
+        </div>
+        <div class="tile">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9 9 0 0 1 9 9 9 9 0 0 1-9 9"/><path d="M3 12h6l2-3 2 6 2-3h2"/></svg></span>
+          <h3>Live cost visibility</h3>
+          <p>Quotes, network fees and route details belong in the confirmation flow, not after the transaction is already signed.</p>
+        </div>
+        <div class="tile">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9M21 3l-9 9-3-3"/></svg></span>
+          <h3>Wallet-native control</h3>
+          <p>Every important action is confirmed from your wallet, so the final approval stays separate from the page interface.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- NETWORKS -->
+    <section class="wrap sec" id="networks">
+      <div class="sec-head">
+        <span class="eyebrow"><span class="dot"></span>Chains and assets</span>
+        <h2 class="h2">USDC routes for Polymarket users</h2>
+        <p>Polymarket activity is closely tied to USDC and the <a class="cite" href="https://polygon.technology/" rel="nofollow noopener noreferrer">Polygon ecosystem</a>. The app shows the currently supported routes, assets and network requirements before you sign.</p>
+      </div>
+      <div class="nets">
+        <span class="net"><span class="nd"></span>USDC</span>
+        <span class="net"><span class="nd"></span>Polygon</span>
+        <span class="net"><span class="nd"></span>Wallet balances</span>
+        <span class="net"><span class="nd"></span>Market positions</span>
+        <span class="net"><span class="nd"></span>Stablecoin routes</span>
+        <span class="net"><span class="nd"></span>Web3 wallets</span>
+        <span class="net"><span class="nd"></span>Live app quotes</span>
+      </div>
+      <div class="nets-foot">
+        <a href="supported-chains/">See all supported chains
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="wrap sec" id="faq">
+      <div class="sec-head">
+        <span class="eyebrow"><span class="dot"></span>FAQ</span>
+        <h2 class="h2">Polymarket questions</h2>
+      </div>
+      <div class="faq">
+        <div class="qa">
+          <h3><span class="qn">01</span>What is Polymarket?</h3>
+          <p>Polymarket is a prediction market experience for taking positions on event outcomes. This page frames the wallet and USDC flow so you can prepare funds, review route details and open the app with a clearer plan.</p>
+        </div>
+        <div class="qa">
+          <h3><span class="qn">02</span>How does the Polymarket app flow work?</h3>
+          <p>Connect a wallet, choose the USDC route, review the live quote and sign only after the wallet prompt matches your intended action. A <a class="cite" href="https://walletconnect.com/" rel="nofollow noopener noreferrer">wallet connection</a> keeps the approval step separate from the page.</p>
+        </div>
+        <div class="qa">
+          <h3><span class="qn">03</span>Which chains and assets are supported?</h3>
+          <p>The app focuses on USDC and market-ready wallet balances. Route availability can change by network, so check the <a href="supported-chains/">supported chains</a> page and the live app before signing.</p>
+        </div>
+        <div class="qa">
+          <h3><span class="qn">04</span>How long does a Polymarket route take?</h3>
+          <p>Timing depends on the selected network, wallet confirmation and current chain conditions. The estimated completion window is shown in the app before you approve anything.</p>
+        </div>
+        <div class="qa">
+          <h3><span class="qn">05</span>What does it cost to use Polymarket?</h3>
+          <p>Costs depend on the route, network conditions and any market action you choose. The app displays the live quote and network fee information before you sign, so avoid relying on stale screenshots or copied instructions.</p>
+        </div>
+        <div class="qa">
+          <h3><span class="qn">06</span>How should I use Polymarket safely?</h3>
+          <p>Verify the site, inspect every wallet prompt, confirm the asset and network, and remember that prediction markets can lose value. Do not sign approvals you do not understand.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPLORE -->
+    <section class="wrap sec" id="explore">
+      <div class="sec-head">
+        <span class="eyebrow"><span class="dot"></span>Learn more</span>
+        <h2 class="h2">Explore Polymarket</h2>
+      </div>
+      <div class="explore">
+        <a class="ex" href="how-it-works/">
+          <span class="et">How it works <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+          <p>The step-by-step flow for preparing USDC and reviewing a Polymarket route.</p>
+        </a>
+        <a class="ex" href="security/">
+          <span class="et">Security <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+          <p>Wallet safety, approval checks and non-custodial habits before you sign.</p>
+        </a>
+        <a class="ex" href="supported-chains/">
+          <span class="et">Supported chains <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+          <p>The assets and networks available for Polymarket-ready app routes.</p>
+        </a>
+      </div>
+    </section>
   </main>
-  <footer class="footer">Polymarket &mdash; 2026</footer>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>Information on this page is for educational purposes only and is not financial advice.</p>
+      <p style="margin-top:6px"><b>Polymarket</b></p>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"WebSite","@id":"https://polymarket-site.github.io/#website","url":"https://polymarket-site.github.io/","name":"Polymarket"},
+    {"@type":"Organization","@id":"https://polymarket-site.github.io/#org","name":"Polymarket","url":"https://polymarket-site.github.io/","logo":"https://polymarket-site.github.io/favicon.png"},
+    {"@type":"WebApplication","name":"Polymarket","applicationCategory":"FinanceApplication","operatingSystem":"Web","url":"https://polymarket-site.github.io/","browserRequirements":"Requires a Web3 wallet","description":"Non-custodial app flow for preparing USDC routes and reviewing Polymarket market activity from a wallet-native interface."},
+    {"@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"What is Polymarket?","acceptedAnswer":{"@type":"Answer","text":"Polymarket is a prediction market experience for taking positions on event outcomes. This page frames the wallet and USDC flow so users can prepare funds, review route details and open the app with a clearer plan."}},
+      {"@type":"Question","name":"How does the Polymarket app flow work?","acceptedAnswer":{"@type":"Answer","text":"Connect a wallet, choose the USDC route, review the live quote and sign only after the wallet prompt matches the intended action."}},
+      {"@type":"Question","name":"Which chains and assets are supported?","acceptedAnswer":{"@type":"Answer","text":"The app focuses on USDC and market-ready wallet balances. Route availability can change by network, so users should check the supported chains page and the live app before signing."}},
+      {"@type":"Question","name":"How long does a Polymarket route take?","acceptedAnswer":{"@type":"Answer","text":"Timing depends on the selected network, wallet confirmation and current chain conditions. The estimated completion window is shown in the app before approval."}},
+      {"@type":"Question","name":"What does it cost to use Polymarket?","acceptedAnswer":{"@type":"Answer","text":"Costs depend on the route, network conditions and any market action selected. The app displays live quote and network fee information before signing."}},
+      {"@type":"Question","name":"How should I use Polymarket safely?","acceptedAnswer":{"@type":"Answer","text":"Verify the site, inspect every wallet prompt, confirm the asset and network, and remember that prediction markets can lose value. Do not sign approvals you do not understand."}}
+    ]}
+  ]}
+  </script>
+
+  <script>
+  (function(){
+    "use strict";
+    var b=document.querySelector("[data-switch]");
+    if(!b) return;
+    b.addEventListener("click",function(){
+      var t=document.querySelectorAll(".route .tok");
+      if(t.length<2) return;
+      var h=t[0].innerHTML; t[0].innerHTML=t[1].innerHTML; t[1].innerHTML=h;
+    });
+  }());
+  </script>
 </body>
 </html>
